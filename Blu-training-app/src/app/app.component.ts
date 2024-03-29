@@ -12,4 +12,14 @@ import { TableComponent } from '../../projects/ui/table/table.component';
 })
 export class AppComponent {
   title = 'Blu-training-app';
+  tableConfig = {
+  columns: ['Firstname', 'lastname', 'email'],
+  rows: [
+    ['joe', 'Doe', 'Joe@gmail.com'],
+    ['Mary', 'Moe', 'mo@gmail.com'],
+    ['July', 'Doo', 'july@gmail.com']
+
+  ]
+};
+
 }

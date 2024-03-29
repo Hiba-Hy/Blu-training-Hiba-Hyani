@@ -1,32 +1,14 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lib-table',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
 export class TableComponent {
-    users : any[]= [
-    {
-      "userid":1,
-      "Firstname":"Joe",
-      "Lastname":"Doe",
-      "Email":"jo@gmail.com "  
-    },
-    {
-      "userid":2,
-      "Firstname":"Mary",
-      "Lastname":"Moe",
-      "Email":"mo@gmail.com "  
-    },{
-      "userid":3,
-      "Firstname":"July",
-      "Lastname":"doo",
-      "Email":"julygmail.com "  
-    }
-
-  ]
-
+  @Input()
+  config!: { columns: string[]; rows: any[][]; };
 }

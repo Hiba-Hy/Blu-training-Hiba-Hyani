@@ -8,23 +8,48 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+  <!-- Filter inputs for each column -->
 
-<div class="container mt-3">            
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th *ngFor="let column of config.columns">{{ column }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of config.rows">
-        <td *ngFor="let cell of row">{{ cell }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div>
+  <input type="text" [(ngModel)]="searchTermFirst" placeholder="Filter by Firstname" class="mytxt">
+  <input type="text" [(ngModel)]="searchTermLast"  placeholder="Filter by Lastname" class="mytxt">
+  <input type="text" [(ngModel)]="searchTermEmail"  placeholder="Filter by Email" class="mytxt">
 </div>
+<div *ngFor="let item of tableConfig.rows| Filter: 'Firstname': this.searchTermFirst" class="mydiv">
+  Firstname: {{ item.Firstname }}, 
+  lastname: {{ item.Lastname}}, 
+  Email: {{ item.Email }} 
+</div>
+
+<div *ngFor="let item of tableConfig.rows| Filter: 'Lastname': this.searchTermLast" class="mydiv">
+  Firstname: {{ item.Firstname }}, 
+  lastname: {{ item.Lastname}}, 
+  Email: {{ item.Email }} 
+</div>
+
+<div *ngFor="let item of tableConfig.rows| Filter: 'Email': this.searchTermEmail" class="mydiv" >
+  Firstname: {{ item.Firstname }}, 
+  lastname: {{ item.Lastname}}, 
+  Email: {{ item.Email }} 
+</div>
+
+  <div class="container mt-3">            
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let column of tableConfig.columns">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tableConfig.rows">
+          <td>{{ row.Firstname }}</td>
+          <td>{{ row.Lastname }}</td>
+          <td>{{ row.Email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
-
 
 

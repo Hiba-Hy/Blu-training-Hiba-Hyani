@@ -5,11 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true
 })
 export class FilterPipe implements PipeTransform {
-  transform(data: any[], key: string, value: any): any[] {
-    if (!data || !key || value === undefined) {
-      return data; 
-    }
+  transform(data: any[], searchText: string): any[] {
+    if (!data) return [];
+    if (!searchText) return [];
 
-    return data.filter((item) => item[key] === value);
-  }
+    searchText = searchText.toLowerCase();
+    return data.filter(data => {
+      return Object.keys(data).some(key => {
+        const value = data[key];
+        return value && value.toString().toLowerCase().includes(searchText);
+      });
+    });
+  } 
 }

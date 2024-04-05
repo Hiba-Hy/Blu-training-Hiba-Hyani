@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { UiComponent } from "../../projects/ui/src/lib/ui.component";
 import { TableComponent } from '../../projects/ui/table/table.component';
 
+
+
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -12,4 +14,5 @@ import { TableComponent } from '../../projects/ui/table/table.component';
 })
 export class AppComponent {
   title = 'Blu-training-app';
+
 }

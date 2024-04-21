@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UiComponent } from "../../projects/ui/src/lib/ui.component";
 import { TableComponent } from '../../projects/ui/table/table.component';
@@ -14,5 +14,9 @@ import { TableComponent } from '../../projects/ui/table/table.component';
 })
 export class AppComponent {
   title = 'Blu-training-app';
-
+ 
+  @ViewChild('customCellTemplate') customCellTemplate!: TemplateRef<any>;
+  
+ 
+  
 }

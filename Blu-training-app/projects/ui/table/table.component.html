@@ -33,21 +33,32 @@
 <!-- Data -->
 <h5> Table data: </h5>
   <div class="container mt-3">            
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th *ngFor="let column of tableConfig.columns">{{ column }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let row of tableConfig.rows">
-          <td>{{ row.Firstname }}</td>
-          <td>{{ row.Lastname }}</td>
-          <td>{{ row.Email }}</td></tr>
-      </tbody>
-    </table>
+  <!-- table.component.html -->
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th *ngFor="let column of tableConfig.columns">{{ column }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of tableConfig.rows">
+      <td>
+        <ng-container  *ngTemplateOutlet="cellngTemplate; context: { $implicit: row.Firstname }"></ng-container>
+      </td>
+      <td>
+        <ng-container *ngTemplateOutlet="cellngTemplate; context: { $implicit: row.Lastname }"></ng-container>
+      </td>
+      <td>
+        <ng-container *ngTemplateOutlet="cellngTemplate; context: { $implicit: row.Email }"></ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
   </div>
 </body>
 </html>
-
 

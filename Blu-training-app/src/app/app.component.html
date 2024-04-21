@@ -1,3 +1,8 @@
 
+<!-- app.component.html -->
+<lib-table [cellngTemplate]="customCellTemplate"></lib-table>
 
-<lib-table> </lib-table>
+<ng-template #customCellTemplate let-cellValue>
+    <!-- Customize the cell content here -->
+    <button class="btn btn-default">{{ cellValue }}</button>
+</ng-template>

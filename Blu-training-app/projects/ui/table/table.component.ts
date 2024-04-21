@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { FilterPipe } from '../../pipes/src/lib/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { PreRenderPipe } from '../../pipes/src/lib/preRender.pipe';
@@ -14,6 +14,8 @@ export class AppModule {}
    
 })
 export class TableComponent {
+  @Input()
+  cellngTemplate!: TemplateRef<any>;
   @Input()
   config!: {columns: string[]; rows: any[][]; };
   searchText:string='';
